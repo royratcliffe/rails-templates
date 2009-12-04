@@ -1,9 +1,10 @@
-run ">README"
+# Remove index.html and rails.png before firing up the Git repo
+run '>README'
+run 'rm public/index.html'
+run 'rm public/images/rails.png'
 
 if yes?('Do you want to use RSpec?')
-  plugin 'rspec', :git => 'git://github.com/dchelimsky/rspec.git'
-  plugin 'rspec-rails', :git => 'git://github.com/dchelimsky/rspec-rails.git'
-  generate :rspec
+  load_template 'http://github.com/royratcliffe/rails-templates/raw/master/base_template.rb'
 end
 
 git :init
@@ -28,5 +29,4 @@ git :commit => '-m "Initial commit"'
 
 generate :controller, 'welcome index'
 route "map.root :controller => 'welcome'"
-git :rm => 'public/index.html'
 git :add => '.', :commit => '-m "Welcome controller added"'
