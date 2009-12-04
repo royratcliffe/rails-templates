@@ -4,7 +4,7 @@ run 'rm public/index.html'
 run 'rm public/images/rails.png'
 
 if yes?('Do you want to use RSpec?')
-  load_template 'http://github.com/royratcliffe/rails-templates/raw/master/base_template.rb'
+  load_template 'http://github.com/royratcliffe/rails-templates/raw/master/rspec.rb'
 end
 
 git :init
